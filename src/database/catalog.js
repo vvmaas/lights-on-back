@@ -76,5 +76,11 @@ const catalog = [
         title: 'Wooden Chandelier',
         price: '$250',
         description: 'It provides a rustic and authentic look in its environment. A special technique is applied on the natural wood, with a special technique, waterproof, odorless, ultra-resistant to U.V rays, and a 1st class product that is resistant to mold and fungus.'
+    },
+    {
+        url: 'https://i.pinimg.com/564x/84/6c/8c/846c8cd48c7677d4f68ca8c2670732e2.jpg',
+        title: 'Lee Broom Chandelier',
+        price: '$375',
+        description: 'The best luxury lighting fixtures in a selection curated by Boca do Lobo to inspire interior designers for their next projects.'
     }
 ];
