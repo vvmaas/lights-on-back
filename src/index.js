@@ -9,5 +9,5 @@ server.use(express.json())
 server.use(router)
 
 server.listen(5000, () => {
-    console.log("Listening at " + "5000")
+    console.log("Listening at " + 5000) //trocar pra process.env.PORT depois
 })

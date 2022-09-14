@@ -6,6 +6,6 @@ const mongoClient = new MongoClient(process.env.MONGO_URI)
 
 await mongoClient.connect()
 
-const db = mongoClient.db('lightson')
+const db = mongoClient.db('lights-on')
 
 export default db

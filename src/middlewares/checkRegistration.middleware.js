@@ -6,10 +6,10 @@ async function checkRegistration(req,res,next) {
     res.locals.user = user
 
     try {
-        const exists =  await db.collection("users").findOne({email: user.email})
-        res.locals.userExists = exists
+        const registeredUser =  await db.collection("users").findOne({email: user.email})
+        res.locals.userRegister = registeredUser
         
-        if (exists && bcrypt.compareSync(user.password, exists.password)) {
+        if (registeredUser && bcrypt.compareSync(user.password, registeredUser.password)) {
             next()
         } else {
             return res.sendStatus(401)
