@@ -1,11 +1,11 @@
 import { MongoClient } from "mongodb";
-import dotenv from 'dotenv'
-dotenv.config()
+import dotenv from 'dotenv';
+dotenv.config();
 
-const mongoClient = new MongoClient(process.env.MONGO_URI)
+const mongoClient = new MongoClient(process.env.MONGO_URI);
 
-await mongoClient.connect()
+await mongoClient.connect();
 
-const db = mongoClient.db('lightson')
+const db = mongoClient.db('lightson');
 
-export default db
+export default db;
