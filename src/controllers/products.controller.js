@@ -1,11 +1,8 @@
-import { ObjectId } from 'mongodb';
 import db from '../database/db.js';
 
 const listProducts = async (req, res) => {
 
     try {
-
-        await db.products.createIndex({ title: 'text' }, { default_language: 'es' });
         
         const products = await db.collection('products').find().toArray();
 
@@ -24,6 +21,8 @@ const listProduct = async (req, res) => {
     const { keyword } = req.query;
 
     try {
+
+        await db.products.createIndex({ title: 'text' }, { default_language: 'es' });
 
         const product =  db
             .collection('products')
