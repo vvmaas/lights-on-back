@@ -10,7 +10,7 @@ async function checkUser(req,res,next) {
         if (user){
             next()
         } else {
-            return res.sendStatus(401)
+            return res.sendStatus(402)
         }
     } catch (err) {
         console.log(err)
