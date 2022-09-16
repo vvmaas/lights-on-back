@@ -19,10 +19,9 @@ const listProducts = async (req, res) => {
 const listProduct = async (req, res) => {
 
     const { keyword } = req.query;
+    console.log("chegou aqui")
 
     try {
-
-        await db.products.createIndex({ title: 'text' }, { default_language: 'es' });
 
         const product =  db
             .collection('products')
@@ -32,7 +31,7 @@ const listProduct = async (req, res) => {
             return res.sendStatus(404);
         }
 
-        res.status(200).send(product);
+        res.status(200).send('OK');
         
     } catch (error) {
 
