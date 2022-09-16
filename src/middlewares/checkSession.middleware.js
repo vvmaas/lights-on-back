@@ -6,7 +6,7 @@ async function checkSession(req,res,next){
         const session = await db.collection("sessions").findOne({token: token})
 
         if(!session) {
-            return res.sendStatus(401)
+            return res.sendStatus(402)
         }
         res.locals.session = session
         next()
