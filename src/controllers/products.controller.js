@@ -5,6 +5,8 @@ const listProducts = async (req, res) => {
 
     try {
 
+        await db.products.createIndex({ title: 'text' }, { default_language: 'es' });
+        
         const products = await db.collection('products').find().toArray();
 
         res.status(200).send(products);
@@ -17,7 +19,7 @@ const listProducts = async (req, res) => {
     }
 };
 
-const listProduct = (req, res) => {
+const listProduct = async (req, res) => {
 
     const { keyword } = req.query;
 
