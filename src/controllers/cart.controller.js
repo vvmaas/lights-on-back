@@ -51,4 +51,18 @@ async function deleteCartProduct (req,res) {
 
 }
 
-export {getCart, postCartProduct, deleteCartProduct}
+async function deleteCart (req,res) {
+    const session = res.locals.session
+
+    try {
+        await db.collection("cart").deleteMany({userId: session.userId})
+
+        res.sendStatus(201)
+    } catch (err) {
+        console.log(err)
+        res.sendStatus(401)
+    }
+
+}
+
+export {getCart, postCartProduct, deleteCartProduct, deleteCart}
