@@ -14,7 +14,7 @@ const listProducts = async (req, res) => {
             .toArray();
 
             if (products.length === 0) {
-                return res.status(404);
+                return res.sendStatus(404);
             }
 
             return res.status(200).send(products);
