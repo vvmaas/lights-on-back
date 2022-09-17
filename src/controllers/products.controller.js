@@ -12,6 +12,10 @@ const listProducts = async (req, res) => {
             .collection('products')
             .find({ $text: { $search: keyword } });
 
+            if (!products) {
+                return res.status(404);
+            }
+
             return res.status(200).send(products);
         }
         
