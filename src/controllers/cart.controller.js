@@ -38,7 +38,6 @@ async function postCartProduct (req,res) {
 
 async function deleteCartProduct (req,res) {
     const target = res.locals.name
-    console.log(target)
 
     try {
         await db.collection("cart").deleteOne({_id: new ObjectId(target)})
@@ -55,6 +54,13 @@ async function deleteCart (req,res) {
     const session = res.locals.session
 
     try {
+        const soldItens = await db.collection("cart").find({userId: session.userId}).toArray()
+
+        await db.collection("sellings").insertOne({
+            userId: session.userId,
+            itens: soldItens
+        })
+
         await db.collection("cart").deleteMany({userId: session.userId})
 
         res.sendStatus(201)
