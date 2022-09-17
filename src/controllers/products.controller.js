@@ -13,7 +13,7 @@ const listProducts = async (req, res) => {
             .find({ $text: { $search: keyword } })
             .toArray();
 
-            if (!products) {
+            if (products.length === 0) {
                 return res.status(404);
             }
 
