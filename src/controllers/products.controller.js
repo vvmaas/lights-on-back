@@ -8,9 +8,10 @@ const listProducts = async (req, res) => {
 
         if ( keyword ) {
 
-            const products =  db
+            const products =  await db
             .collection('products')
-            .find({ $text: { $search: keyword } });
+            .find({ $text: { $search: keyword } })
+            .toArray();
 
             if (!products) {
                 return res.status(404);
